@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0c0f">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="First flight test of the Grasshopper, the custom-designed quadplane prototype from Thucydides Aerospace Inc.">
+  <title>Latest Milestone — Thucydides Aerospace Inc.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=8">
+  <link rel="icon" type="image/png" href="/logo2.png">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a href="/" class="brand">
+        <img src="/logo2.png" alt="" class="brand-logo" width="40" height="40">
+        <span class="brand-name">Thucydides Aerospace Inc.</span>
+      </a>
+    </header>
+
+    <!--
+      One milestone at a time. To feature a new one, replace the title, date,
+      media and summary below; the URL (/latest/) stays the same.
+    -->
+    <main class="milestone">
+      <p class="eyebrow">Latest milestone</p>
+      <h1 class="milestone-title">The Grasshopper's First Flight</h1>
+      <p class="milestone-date"><time datetime="2026-11-01">November 1, 2026</time></p>
+
+      <figure class="milestone-media">
+        <video id="flight-video" controls playsinline muted preload="metadata"
+               poster="/latest/media/first-flight-poster.jpg"
+               data-telemetry="/latest/media/first-flight.telemetry.json">
+          <source src="/latest/media/first-flight.mp4" type="video/mp4">
+        </video>
+      </figure>
+
+      <!-- Live readouts; filled in by /latest/telemetry.js as the video plays. -->
+      <div class="telemetry" data-for="flight-video" role="group"
+           aria-label="Flight telemetry from the flight logs">
+        <div class="tm-cell">
+          <span class="tm-label">Altitude</span>
+          <span class="tm-value" data-tm="alt">—</span>
+          <span class="tm-sub">above takeoff</span>
+        </div>
+        <div class="tm-cell">
+          <span class="tm-label">Heading</span>
+          <span class="tm-value" data-tm="hdg">—</span>
+          <span class="tm-sub" data-tm="cardinal">—</span>
+        </div>
+        <div class="tm-cell">
+          <span class="tm-label">Roll</span>
+          <span class="tm-value" data-tm="roll">—</span>
+          <span class="tm-sub">right wing down +</span>
+        </div>
+        <div class="tm-cell">
+          <span class="tm-label">Pitch</span>
+          <span class="tm-value" data-tm="pitch">—</span>
+          <span class="tm-sub">nose up +</span>
+        </div>
+      </div>
+      <p class="telemetry-note">Telemetry from the flight logs.</p>
+
+      <p class="milestone-summary">
+        The first flight test of the Grasshopper, our custom-designed quadplane
+        prototype, flown at Cesar Chavez Park in Berkeley, California. It took off
+        vertically, climbed to about 15&nbsp;m (50&nbsp;ft) and landed back on the
+        field after 11 seconds in the air.
+      </p>
+    </main>
+
+    <section class="contact">
+      <p class="contact-line">
+        Interested in Thucydides Aerospace? — <a href="mailto:dylan@thucy-aero.com">dylan@thucy-aero.com</a>
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 Thucydides Aerospace Inc. All Rights Reserved.</p>
+    </footer>
+  </div>
+  <script src="/latest/telemetry.js?v=2" defer></script>
+</body>
+</html>
