@@ -1,0 +1,8 @@
+# GitHub Pages builds this repo with Jekyll. Everything listed here stays in
+# git but is NOT published to thucy-aero.com.
+exclude:
+  - assets/
+  - tools/
+  - node_modules/
+  - package.json
+  - package-lock.json

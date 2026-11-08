@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+
+# Private design files and flight logs: keep locally, never commit.
+assets/Grasshopper_prototype.vsp3
+assets/thucy_memo_grasshopper_airframe_geometry.md
+assets/grasshopper_ascii.txt
+assets/flight-test-2/APM/
