@@ -224,13 +224,18 @@ main.milestone {
   color: var(--text-muted);
 }
 
-.milestone-title {
-  margin-top: 0.75rem;
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
+/* Every event's title is the same size, the latest and the earlier ones. */
+.milestone-title,
+.milestone-subtitle {
+  font-size: clamp(1.375rem, 4vw, 1.75rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--text);
+}
+
+.milestone-title {
+  margin-top: 0.75rem;
 }
 
 .milestone-date {
@@ -284,23 +289,16 @@ main.milestone {
   aspect-ratio: 106 / 45;
 }
 
-/* An earlier event under the latest one: same pieces, one step down in size. */
+/* An earlier event under the latest one: same pieces, set off by a rule. */
 .milestone-more {
   margin-top: 3.5rem;
   padding-top: 3rem;
   border-top: 1px solid var(--border);
 }
 
-.milestone-subtitle {
-  font-size: clamp(1.375rem, 4vw, 1.75rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--text);
-}
-
+/* The contact line and footer sit well clear of the last event's text. */
 .milestone + .contact {
-  margin-top: 3rem;
+  margin-top: 7rem;
 }
 
 /* Live telemetry under the milestone video (filled in by /latest/telemetry.js). */
