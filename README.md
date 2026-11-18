@@ -123,7 +123,43 @@ still frame if the visitor has "reduce motion" turned on.
 
 ## Latest milestone page (`/latest/`)
 
-Shows one milestone at a time: a video with live flight telemetry under it.
+Events newest first. The latest one leads the page (the `h1`); each earlier one
+follows in its own `milestone-more` section, with its date. To add
+an event, move the current lead into a `milestone-more` section and put the new
+one at the top.
+
+### Indoor hover test (2026-11-16)
+
+- `latest/media/indoor-hover.mp4`: one flight filmed by two phones, side by
+  side in one file so the views cannot drift apart. Left is 2:39.00–3:08.98 of
+  `PXL_20261117_050904666.mp4`, right is 2:41.02–3:11.00 of `IMG_3771.MOV`
+  (both in the 2026-11-16 indoor session in the team Drive). No audio, phone
+  metadata removed, H.264 CRF 20, with a 16 px bar between the views.
+- The two were lined up on the picture: the aircraft's up-and-down movement in
+  each view, which agrees to within a frame. The iPhone recording runs 2.02 s
+  ahead of the Pixel one. (Lining up on the motor sound gave 1.89 s, four
+  frames out.)
+- `latest/media/indoor-hover-poster.jpg`: its frame at 6 s.
+- `latest/media/indoor-hover.telemetry.json`: readouts synced to the clip,
+  built from that flight's log (`APM/LOGS/00000041.BIN` in the same session
+  folder) by `tools/apm_telemetry.py`; the command and how the log was lined
+  up with the video are in that script's header. Altitude is the downward
+  rangefinder's, because indoors there is no GPS. The heading shows turns
+  well, but indoors the compass is disturbed, so its north is not checked.
+
+```bash
+ffmpeg -ss 159 -t 29.98 -i PXL_20261117_050904666.mp4 \
+  -ss 161.02 -t 29.98 -i IMG_3771.MOV -filter_complex \
+  "[0:v]fps=30,scale=1920:1080:in_range=pc:out_range=tv:flags=lanczos,format=yuv420p,setsar=1[a];\
+   [1:v]fps=30,scale=608:1080:flags=lanczos,format=yuv420p,setsar=1,pad=624:1080:16:0:color=0x0a0c0f[b];\
+   [a][b]hstack=inputs=2[v]" \
+  -map "[v]" -an -map_metadata -1 -c:v libx264 -crf 20 -preset slow \
+  -pix_fmt yuv420p -color_range tv -colorspace bt709 -movflags +faststart \
+  latest/media/indoor-hover.mp4
+```
+
+### First flight (2026-11-01)
+
 
 - `latest/media/first-flight.mp4`: trimmed web clip (12.0–36.5 s of the
   original in `assets/flight-test-2/`, no audio, H.264 CRF 23).
@@ -131,7 +167,8 @@ Shows one milestone at a time: a video with live flight telemetry under it.
   built from the onboard ArduPilot log by `tools/apm_telemetry.py`. See that
   script's header for how the video and log were lined up. The log itself is
   not in git; keep it at `assets/flight-test-2/APM/` locally.
-- `latest/telemetry.js`: updates the readouts every video frame.
+- `latest/telemetry.js`: updates the readouts every video frame, for every
+  readout panel on the page (`data-for` names its video).
 
 If you re-trim the clip, rebuild the telemetry with the new `--clip-start` and
 `--duration`:

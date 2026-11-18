@@ -1,18 +1,18 @@
 /*
- * Live flight telemetry under the milestone video, GCS-style.
+ * Live flight telemetry under a milestone video, GCS-style.
  *
- * The <video> names its telemetry file in data-telemetry. That JSON is built
+ * Each readout panel names its video in data-for (the video's id), and the
+ * <video> names its telemetry file in data-telemetry. That JSON is built
  * from the onboard ArduPilot log by tools/apm_telemetry.py and is already
  * synced to the clip: sample k is at video time k / rate. Values are
  * interpolated between samples, so readouts move smoothly while playing and
  * stay correct when paused or scrubbing.
  */
-(() => {
+document.querySelectorAll(".telemetry[data-for]").forEach((panel) => {
   "use strict";
 
-  const video = document.getElementById("flight-video");
-  const panel = document.querySelector('.telemetry[data-for="flight-video"]');
-  if (!video || !panel || !video.dataset.telemetry) return;
+  const video = document.getElementById(panel.dataset.for);
+  if (!video || !video.dataset.telemetry) return;
 
   const el = {};
   panel.querySelectorAll("[data-tm]").forEach((node) => { el[node.dataset.tm] = node; });
@@ -78,4 +78,4 @@
       render(video.currentTime);
     })
     .catch(() => panel.classList.add("is-unavailable"));
-})();
+});
