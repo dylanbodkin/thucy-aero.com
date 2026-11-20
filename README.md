@@ -1,6 +1,6 @@
 # Thucydides Aerospace Inc. — Landing Page
 
-Single-page static site for [thucy-aero.com](https://thucy-aero.com), hosted on GitHub Pages.
+Static site for [thucy-aero.com](https://thucy-aero.com), hosted on GitHub Pages.
 
 ## Deploy to GitHub Pages
 
@@ -94,6 +94,13 @@ are **not** in git: they live in `assets/` on your machine only and are listed
 in `.gitignore`. Add anything else that must stay private to `.gitignore`
 before committing; removing a file from git history later is much harder.
 
+## About page (`/about/`)
+
+`about/index.html`: a Mission section and a Team section with one card per
+co-founder. Put photos in `about/media/` (square, 384x384 px JPEG, location
+data removed) and replace each placeholder `<div>` with the `<img>` shown in
+the comment above the team list.
+
 ## Color scheme
 
 The site is dark only. Every color is a CSS custom property in `:root` in
@@ -121,7 +128,19 @@ surface, tumbles them on two axes, uses a z-buffer for depth, and shades with
 OpenVSP model, which is kept out of git). It pauses when scrolled off-screen and shows a
 still frame if the visitor has "reduce motion" turned on.
 
-## Latest milestone page (`/latest/`)
+## Navigation
+
+Every page has the same nav: **About** on the left, the logo in the middle,
+**Milestones** on the right (`.site-nav` in `styles.css`). The logo and company
+name link home; there is no "Home" link. Mark the current page's link with
+`aria-current="page"`; that makes it green and underlined.
+
+## Milestones page (`/milestones/`)
+
+This page used to be `/latest/`, and that link was shared. `latest/index.html`
+is now a redirect to `/milestones/`; keep it.
+
+
 
 Events newest first. The latest one leads the page (the `h1`); each earlier one
 follows in its own `milestone-more` section, with its date. To add
@@ -130,7 +149,7 @@ one at the top.
 
 ### Indoor hover test (2026-11-16)
 
-- `latest/media/indoor-hover.mp4`: one flight filmed by two phones, side by
+- `milestones/media/indoor-hover.mp4`: one flight filmed by two phones, side by
   side in one file so the views cannot drift apart. Left is 2:39.00–3:08.98 of
   `PXL_20261117_050904666.mp4`, right is 2:41.02–3:11.00 of `IMG_3771.MOV`
   (both in the 2026-11-16 indoor session in the team Drive). No audio, phone
@@ -139,8 +158,8 @@ one at the top.
   each view, which agrees to within a frame. The iPhone recording runs 2.02 s
   ahead of the Pixel one. (Lining up on the motor sound gave 1.89 s, four
   frames out.)
-- `latest/media/indoor-hover-poster.jpg`: its frame at 6 s.
-- `latest/media/indoor-hover.telemetry.json`: readouts synced to the clip,
+- `milestones/media/indoor-hover-poster.jpg`: its frame at 6 s.
+- `milestones/media/indoor-hover.telemetry.json`: readouts synced to the clip,
   built from that flight's log (`APM/LOGS/00000041.BIN` in the same session
   folder) by `tools/apm_telemetry.py`; the command and how the log was lined
   up with the video are in that script's header. Altitude is the downward
@@ -155,19 +174,19 @@ ffmpeg -ss 159 -t 29.98 -i PXL_20261117_050904666.mp4 \
    [a][b]hstack=inputs=2[v]" \
   -map "[v]" -an -map_metadata -1 -c:v libx264 -crf 20 -preset slow \
   -pix_fmt yuv420p -color_range tv -colorspace bt709 -movflags +faststart \
-  latest/media/indoor-hover.mp4
+  milestones/media/indoor-hover.mp4
 ```
 
 ### First flight (2026-11-01)
 
 
-- `latest/media/first-flight.mp4`: trimmed web clip (12.0–36.5 s of the
+- `milestones/media/first-flight.mp4`: trimmed web clip (12.0–36.5 s of the
   original in `assets/flight-test-2/`, no audio, H.264 CRF 23).
-- `latest/media/first-flight.telemetry.json`: readouts synced to the clip,
+- `milestones/media/first-flight.telemetry.json`: readouts synced to the clip,
   built from the onboard ArduPilot log by `tools/apm_telemetry.py`. See that
   script's header for how the video and log were lined up. The log itself is
   not in git; keep it at `assets/flight-test-2/APM/` locally.
-- `latest/telemetry.js`: updates the readouts every video frame, for every
+- `milestones/telemetry.js`: updates the readouts every video frame, for every
   readout panel on the page (`data-for` names its video).
 
 If you re-trim the clip, rebuild the telemetry with the new `--clip-start` and
@@ -175,6 +194,6 @@ If you re-trim the clip, rebuild the telemetry with the new `--clip-start` and
 
 ```bash
 python3 tools/apm_telemetry.py assets/flight-test-2/APM/LOGS/00000001.BIN \
-  latest/media/first-flight.telemetry.json \
+  milestones/media/first-flight.telemetry.json \
   --offset 503.3 --clip-start 12.0 --duration 24.5 --touchdown 536.25
 ```
