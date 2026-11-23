@@ -289,6 +289,13 @@ main.milestone {
   aspect-ratio: 106 / 45;
 }
 
+/* A portrait phone video (1080 x 1350, 4:5): narrower, and never taller than
+ * 80% of the screen, so the readouts under it stay in view. */
+.milestone-media--portrait {
+  --media-w: min(36rem, calc(100vw - 3rem), 64vh);
+  aspect-ratio: 4 / 5;
+}
+
 /* An earlier event under the latest one: same pieces, set off by a rule. */
 .milestone-more {
   margin-top: 3.5rem;

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=14">
+  <link rel="stylesheet" href="/styles.css?v=15">
   <link rel="icon" type="image/png" href="/logo2.png">
 </head>
 <body>
@@ -28,21 +28,20 @@
     -->
     <main class="milestone">
       <p class="eyebrow">Latest milestone</p>
-      <h1 class="milestone-title">Indoor Hover Test</h1>
-      <p class="milestone-date"><time datetime="2026-11-16">November 16, 2026</time></p>
+      <h1 class="milestone-title">The Grasshopper's First Forward Flight</h1>
+      <p class="milestone-date"><time datetime="2026-11-22">November 22, 2026</time></p>
 
-      <!-- Two cameras in one file, so the two views cannot drift apart. -->
-      <figure class="milestone-media milestone-media--pair">
-        <video id="hover-video" controls playsinline muted preload="metadata"
-               poster="/latest/media/indoor-hover-poster.jpg"
-               data-telemetry="/latest/media/indoor-hover.telemetry.json"
-               aria-label="The same indoor flight filmed from two sides of the room at once">
-          <source src="/latest/media/indoor-hover.mp4" type="video/mp4">
+      <figure class="milestone-media milestone-media--portrait">
+        <video id="transition-video" controls playsinline muted preload="metadata"
+               poster="/latest/media/first-transition-poster.jpg"
+               data-telemetry="/latest/media/first-transition.telemetry.json"
+               aria-label="The Grasshopper takes off vertically, flies a lap as a plane, and lands vertically">
+          <source src="/latest/media/first-transition.mp4" type="video/mp4">
         </video>
       </figure>
 
       <!-- Live readouts; filled in by /latest/telemetry.js as the video plays. -->
-      <div class="telemetry" data-for="hover-video" role="group"
+      <div class="telemetry" data-for="transition-video" role="group"
            aria-label="Flight telemetry from the flight logs">
         <div class="tm-cell">
           <span class="tm-label">Altitude</span>
@@ -68,8 +67,54 @@
       <p class="telemetry-note">Telemetry from the flight logs.</p>
 
       <p class="milestone-summary">
-        Ascent and descent are controlled by the operator, but the hovering and balancing is done by the Grasshopper itself. Importantly, the vibration seen in our first milestone (see below) has been resolved.
+        The second flight session of the Grasshopper: it performs a VTOL takeoff, transitions
+        into forward flight to perform a speedy lap and then a VTOL land is performed.
       </p>
+
+      <section class="milestone-more" aria-labelledby="indoor-hover-title">
+        <h2 class="milestone-subtitle" id="indoor-hover-title">Indoor Hover Test</h2>
+        <p class="milestone-date"><time datetime="2026-11-16">November 16, 2026</time></p>
+
+        <!-- Two cameras in one file, so the two views cannot drift apart. -->
+        <figure class="milestone-media milestone-media--pair">
+          <video id="hover-video" controls playsinline muted preload="metadata"
+                 poster="/latest/media/indoor-hover-poster.jpg"
+                 data-telemetry="/latest/media/indoor-hover.telemetry.json"
+                 aria-label="The same indoor flight filmed from two sides of the room at once">
+            <source src="/latest/media/indoor-hover.mp4" type="video/mp4">
+          </video>
+        </figure>
+
+        <!-- Live readouts; filled in by /latest/telemetry.js as the video plays. -->
+        <div class="telemetry" data-for="hover-video" role="group"
+             aria-label="Flight telemetry from the flight logs">
+          <div class="tm-cell">
+            <span class="tm-label">Altitude</span>
+            <span class="tm-value" data-tm="alt">—</span>
+            <span class="tm-sub">above takeoff</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Heading</span>
+            <span class="tm-value" data-tm="hdg">—</span>
+            <span class="tm-sub" data-tm="cardinal">—</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Roll</span>
+            <span class="tm-value" data-tm="roll">—</span>
+            <span class="tm-sub">right wing down +</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Pitch</span>
+            <span class="tm-value" data-tm="pitch">—</span>
+            <span class="tm-sub">nose up +</span>
+          </div>
+        </div>
+        <p class="telemetry-note">Telemetry from the flight logs.</p>
+
+        <p class="milestone-summary">
+          Ascent and descent are controlled by the operator, but the hovering and balancing is done by the Grasshopper itself. Importantly, the vibration seen in our first milestone (see below) has been resolved.
+        </p>
+      </section>
 
       <section class="milestone-more" aria-labelledby="first-flight-title">
         <h2 class="milestone-subtitle" id="first-flight-title">The Grasshopper's First Flight</h2>
