@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0c0f">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Flight tests of the Grasshopper, the custom-designed quadplane prototype from Thucydides Aerospace Inc., newest first.">
+  <title>Milestones — Thucydides Aerospace Inc.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?rev=16">
+  <link rel="icon" type="image/png" href="/logo2.png">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main">
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/" class="brand">
+          <img src="/logo2.png" alt="" class="brand-logo" width="56" height="56">
+          <span class="brand-name">Thucydides Aerospace Inc.</span>
+        </a>
+        <a href="/milestones/" class="nav-link" aria-current="page">Milestones</a>
+      </nav>
+    </header>
+
+    <!--
+      Newest first. The latest event leads the page; each earlier one follows
+      in its own "milestone-more" section. The URL (/milestones/) stays the same.
+    -->
+    <main class="milestone">
+      <p class="eyebrow">Latest milestone</p>
+      <h1 class="milestone-title">The Grasshopper's First Forward Flight</h1>
+      <p class="milestone-date"><time datetime="2026-11-22">November 22, 2026</time></p>
+
+      <figure class="milestone-media milestone-media--portrait">
+        <video id="transition-video" controls playsinline muted preload="metadata"
+               poster="/milestones/media/first-transition-poster.jpg"
+               data-telemetry="/milestones/media/first-transition.telemetry.json"
+               aria-label="The Grasshopper takes off vertically, flies a lap as a plane, and lands vertically">
+          <source src="/milestones/media/first-transition.mp4" type="video/mp4">
+        </video>
+      </figure>
+
+      <!-- Live readouts; filled in by /milestones/telemetry.js as the video plays. -->
+      <div class="telemetry" data-for="transition-video" role="group"
+           aria-label="Flight telemetry from the flight logs">
+        <div class="tm-cell">
+          <span class="tm-label">Altitude</span>
+          <span class="tm-value" data-tm="alt">—</span>
+          <span class="tm-sub">above takeoff</span>
+        </div>
+        <div class="tm-cell">
+          <span class="tm-label">Heading</span>
+          <span class="tm-value" data-tm="hdg">—</span>
+          <span class="tm-sub" data-tm="cardinal">—</span>
+        </div>
+        <div class="tm-cell">
+          <span class="tm-label">Roll</span>
+          <span class="tm-value" data-tm="roll">—</span>
+          <span class="tm-sub">right wing down +</span>
+        </div>
+        <div class="tm-cell">
+          <span class="tm-label">Pitch</span>
+          <span class="tm-value" data-tm="pitch">—</span>
+          <span class="tm-sub">nose up +</span>
+        </div>
+      </div>
+      <p class="telemetry-note">Telemetry from the flight logs.</p>
+
+      <p class="milestone-summary">
+        The second flight session of the Grasshopper: it performs a VTOL takeoff, transitions
+        into forward flight to perform a speedy lap and then a VTOL land is performed.
+      </p>
+
+      <section class="milestone-more" aria-labelledby="indoor-hover-title">
+        <h2 class="milestone-subtitle" id="indoor-hover-title">Indoor Hover Test</h2>
+        <p class="milestone-date"><time datetime="2026-11-16">November 16, 2026</time></p>
+
+        <!-- Two cameras in one file, so the two views cannot drift apart. -->
+        <figure class="milestone-media milestone-media--pair">
+          <video id="hover-video" controls playsinline muted preload="metadata"
+                 poster="/milestones/media/indoor-hover-poster.jpg"
+                 data-telemetry="/milestones/media/indoor-hover.telemetry.json"
+                 aria-label="The same indoor flight filmed from two sides of the room at once">
+            <source src="/milestones/media/indoor-hover.mp4" type="video/mp4">
+          </video>
+        </figure>
+
+        <!-- Live readouts; filled in by /milestones/telemetry.js as the video plays. -->
+        <div class="telemetry" data-for="hover-video" role="group"
+             aria-label="Flight telemetry from the flight logs">
+          <div class="tm-cell">
+            <span class="tm-label">Altitude</span>
+            <span class="tm-value" data-tm="alt">—</span>
+            <span class="tm-sub">above takeoff</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Heading</span>
+            <span class="tm-value" data-tm="hdg">—</span>
+            <span class="tm-sub" data-tm="cardinal">—</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Roll</span>
+            <span class="tm-value" data-tm="roll">—</span>
+            <span class="tm-sub">right wing down +</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Pitch</span>
+            <span class="tm-value" data-tm="pitch">—</span>
+            <span class="tm-sub">nose up +</span>
+          </div>
+        </div>
+        <p class="telemetry-note">Telemetry from the flight logs.</p>
+
+        <p class="milestone-summary">
+          Ascent and descent are controlled by the operator, but the hovering and balancing is done by the Grasshopper itself. Importantly, the vibration seen in our first milestone (see below) has been resolved.
+        </p>
+      </section>
+
+      <section class="milestone-more" aria-labelledby="first-flight-title">
+        <h2 class="milestone-subtitle" id="first-flight-title">The Grasshopper's First Flight</h2>
+        <p class="milestone-date"><time datetime="2026-11-01">November 1, 2026</time></p>
+
+        <figure class="milestone-media">
+          <video id="flight-video" controls playsinline muted preload="metadata"
+                 poster="/milestones/media/first-flight-poster.jpg"
+                 data-telemetry="/milestones/media/first-flight.telemetry.json">
+            <source src="/milestones/media/first-flight.mp4" type="video/mp4">
+          </video>
+        </figure>
+
+        <!-- Live readouts; filled in by /milestones/telemetry.js as the video plays. -->
+        <div class="telemetry" data-for="flight-video" role="group"
+             aria-label="Flight telemetry from the flight logs">
+          <div class="tm-cell">
+            <span class="tm-label">Altitude</span>
+            <span class="tm-value" data-tm="alt">—</span>
+            <span class="tm-sub">above takeoff</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Heading</span>
+            <span class="tm-value" data-tm="hdg">—</span>
+            <span class="tm-sub" data-tm="cardinal">—</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Roll</span>
+            <span class="tm-value" data-tm="roll">—</span>
+            <span class="tm-sub">right wing down +</span>
+          </div>
+          <div class="tm-cell">
+            <span class="tm-label">Pitch</span>
+            <span class="tm-value" data-tm="pitch">—</span>
+            <span class="tm-sub">nose up +</span>
+          </div>
+        </div>
+        <p class="telemetry-note">Telemetry from the flight logs.</p>
+
+        <p class="milestone-summary">
+          The first flight test of the Grasshopper, our custom designed quadplane
+          prototype. The flight took place at Cesar Chavez Park in Berkeley, CA. 
+        </p>
+      </section>
+    </main>
+
+    <section class="contact" aria-label="Contact">
+      <p class="contact-line">
+        Interested in Thucydides Aerospace? — <a href="mailto:dylan@thucy-aero.com">dylan@thucy-aero.com</a>
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 Thucydides Aerospace Inc. All Rights Reserved.</p>
+    </footer>
+  </div>
+  <script src="/milestones/telemetry.js?rev=3" defer></script>
+</body>
+</html>

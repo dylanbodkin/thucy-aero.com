@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Turn an ArduPilot DataFlash log (.BIN) into compact, video-synced telemetry.
 
-The output JSON is what the /latest/ page loads to show live readouts under the
+The output JSON is what the /milestones/ page loads to show live readouts under the
 flight video. Pure standard library (no pymavlink needed).
 
 Example (Flight Test 2, 1 Nov 2026):
 
     python3 tools/apm_telemetry.py \
         assets/flight-test-2/APM/LOGS/00000001.BIN \
-        latest/media/first-flight.telemetry.json \
+        milestones/media/first-flight.telemetry.json \
         --offset 503.3 --clip-start 12.0 --duration 24.5 --touchdown 536.25
 
 How the sync numbers were found
@@ -33,7 +33,7 @@ is PXL_20261117_050904666.mp4 from 159.0 s):
 
     python3 tools/apm_telemetry.py \
         "<team Drive>/Sessions/2026-11-16 Indoor/APM/LOGS/00000041.BIN" \
-        latest/media/indoor-hover.telemetry.json \
+        milestones/media/indoor-hover.telemetry.json \
         --offset 158.28 --clip-start 159.0 --duration 30.0 --touchdown 347.0 \
         --alt-source rangefinder
 
@@ -54,7 +54,7 @@ IMG_3814.MOV):
 
     python3 tools/apm_telemetry.py \
         "<team Drive>/Sessions/2026-11-22 Outdoor/APM/LOGS/00000062.BIN" \
-        latest/media/first-transition.telemetry.json \
+        milestones/media/first-transition.telemetry.json \
         --offset 338.75 --clip-start 0 --duration 86.5 --touchdown 423.1
 
   --offset     the log matched to the video by clock first: the iPhone's
