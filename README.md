@@ -124,7 +124,7 @@ The site is dark only. Every color is a CSS custom property in `:root` in
 | `--bg`           | `#0a0c0f`                 | Page background (also `theme-color`)             | —                  |
 | `--text`         | `#e8eaed`                 | Headings, primary text                           | 16.3:1             |
 | `--text-muted`   | `#8b929a`                 | Body copy, captions, footer                      | 6.2:1              |
-| `--accent`       | `#00a800`                 | Brand green: links, top rule, ASCII airframe, telemetry values | 6.2:1              |
+| `--accent`       | `#00a800`                 | Brand green: links, current-page nav link, top rule, quote rule, ASCII airframe, telemetry values | 6.2:1              |
 | `--accent-hover` | `#00c400`                 | Link hover and focus                             | 8.3:1              |
 | `--border`       | `#1e2329`                 | Dividers (decorative, not for text)              | 1.2:1              |
 | `--grid-dot`     | `rgb(255 255 255 / 0.07)` | Background dot grid                              | —                  |
@@ -152,8 +152,6 @@ name link home; there is no "Home" link. Mark the current page's link with
 
 This page used to be `/latest/`, and that link was shared. `latest/index.html`
 is now a redirect to `/milestones/`; keep it.
-
-
 
 Events newest first. The latest one leads the page (the `h1`); each earlier one
 follows in its own `milestone-more` section, with its date. To add
@@ -191,7 +189,6 @@ ffmpeg -ss 159 -t 29.98 -i PXL_20261117_050904666.mp4 \
 ```
 
 ### First flight (2026-11-01)
-
 
 - `milestones/media/first-flight.mp4`: trimmed web clip (12.0–36.5 s of the
   original in `assets/flight-test-2/`, no audio, H.264 CRF 23).
