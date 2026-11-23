@@ -48,6 +48,23 @@ is PXL_20261117_050904666.mp4 from 159.0 s):
                clip give log 317.28 s at clip start, within 0.01 s.
   --touchdown  AccZ spike at log 347.0 s; the rangefinder is at its floor
                reading from then on.
+
+Example (first forward flight, 22 Nov 2026; the whole of
+IMG_3814.MOV):
+
+    python3 tools/apm_telemetry.py \
+        "<team Drive>/Sessions/2026-11-22 Outdoor/APM/LOGS/00000062.BIN" \
+        milestones/media/first-transition.telemetry.json \
+        --offset 338.75 --clip-start 0 --duration 86.5 --touchdown 423.1
+
+  --offset     the log matched to the video by clock first: the iPhone's
+               recording start (13:14:43 PST, whole seconds only) against the
+               log's GPS time gives 337.6 s. Refined on liftoff, frame by
+               frame: the aircraft leaves the ground at video 7.5 s, and the
+               rangefinder and the EKF vertical speed (XKF1.VD) show liftoff at
+               log 346.2 s. Good to about 0.1 s.
+  --touchdown  AccZ spike at log 423.1 s (video 84.35 s); the rangefinder is
+               at its ground reading from then on.
 """
 import argparse
 import bisect

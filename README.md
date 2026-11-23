@@ -158,6 +158,30 @@ follows in its own `milestone-more` section, with its date. To add
 an event, move the current lead into a `milestone-more` section and put the new
 one at the top.
 
+### First forward flight (2026-11-22)
+
+- `milestones/media/first-transition.mp4`: all of `IMG_3814.MOV` (iPhone, in the
+  2026-11-22 Outdoor session in the team Drive), portrait. The bottom 30 % of
+  the frame (foreground grass) is cropped off, leaving 4:5, and scaled from 4K
+  to 1080 x 1350. Two-pass H.264 at 8.2 Mbit/s, so the file stays under
+  GitHub's 100 MB limit; the original is 487 MB. No audio, phone metadata
+  (including GPS location) removed.
+- `milestones/media/first-transition-poster.jpg`: its frame at 47 s, overhead in fixed-wing flight.
+- `milestones/media/first-transition.telemetry.json`: readouts synced to the clip,
+  built from that flight's log (`APM/LOGS/00000062.BIN` in the same session
+  folder) by `tools/apm_telemetry.py`; the command and how the log was lined
+  up with the video are in that script's header.
+
+```bash
+VF="fps=30,crop=2160:2700:0:0,scale=1080:1350:flags=lanczos,format=yuv420p,setsar=1"
+ffmpeg -i IMG_3814.MOV -vf "$VF" -an -c:v libx264 -preset slow -b:v 8200k \
+  -maxrate 14M -bufsize 20M -pass 1 -f null /dev/null
+ffmpeg -i IMG_3814.MOV -vf "$VF" -an -map_metadata -1 -c:v libx264 -preset slow \
+  -b:v 8200k -maxrate 14M -bufsize 20M -pass 2 -pix_fmt yuv420p -color_range tv \
+  -colorspace bt709 -color_primaries bt709 -color_trc bt709 -movflags +faststart \
+  milestones/media/first-transition.mp4
+```
+
 ### Indoor hover test (2026-11-16)
 
 - `milestones/media/indoor-hover.mp4`: one flight filmed by two phones, side by
