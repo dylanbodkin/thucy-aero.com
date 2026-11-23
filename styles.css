@@ -506,20 +506,6 @@ main.about {
   color: var(--text-muted);
 }
 
-/* Set apart from the mission text by a short green rule above it. */
-.about-quote {
-  max-width: 34rem;
-  margin: 1rem auto 0;
-  padding-top: 1.5rem;
-  border-top: 2px solid var(--accent);
-  border-image: linear-gradient(to right, transparent 45%, var(--accent) 45%, var(--accent) 55%, transparent 55%) 1;
-  font-size: clamp(0.9375rem, 2.3vw, 1.0625rem);
-  font-style: italic;
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--text);
-}
-
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));

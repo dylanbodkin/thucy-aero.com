@@ -124,7 +124,7 @@ The site is dark only. Every color is a CSS custom property in `:root` in
 | `--bg`           | `#0a0c0f`                 | Page background (also `theme-color`)             | —                  |
 | `--text`         | `#e8eaed`                 | Headings, primary text                           | 16.3:1             |
 | `--text-muted`   | `#8b929a`                 | Body copy, captions, footer                      | 6.2:1              |
-| `--accent`       | `#00a800`                 | Brand green: links, current-page nav link, top rule, quote rule, ASCII airframe, telemetry values | 6.2:1              |
+| `--accent`       | `#00a800`                 | Brand green: links, current-page nav link, top rule, ASCII airframe, telemetry values | 6.2:1              |
 | `--accent-hover` | `#00c400`                 | Link hover and focus                             | 8.3:1              |
 | `--border`       | `#1e2329`                 | Dividers (decorative, not for text)              | 1.2:1              |
 | `--grid-dot`     | `rgb(255 255 255 / 0.07)` | Background dot grid                              | —                  |
