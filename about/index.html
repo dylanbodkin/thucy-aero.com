@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=15">
+  <link rel="stylesheet" href="/styles.css?rev=15">
   <link rel="icon" type="image/png" href="/logo2.png">
 </head>
 <body>
@@ -29,30 +29,37 @@
     <main class="about">
       <section class="about-section" aria-labelledby="mission-title">
         <h1 class="section-title" id="mission-title">Mission</h1>
-        <!-- TODO: mission text. -->
-        <p class="about-text">[Mission text to come.]</p>
+        <p class="about-text">
+          The onus of defending freedom is ours, and so Thucydides Aerospace is
+          committed to paying the cost of liberty and to the defense and
+          propagation of exceptional culture everywhere. It is our mission to
+          enhance and enable the men and women who sacrifice their blood for the
+          ideals innate to all of us.
+        </p>
+        <blockquote class="about-quote">
+          <p>“The society that separates its scholars from its warriors will have
+          its thinking done by cowards and its fighting by fools.”</p>
+        </blockquote>
       </section>
 
       <section class="about-section" aria-labelledby="team-title">
         <h2 class="section-title" id="team-title">Team</h2>
         <!--
-          One <li class="member"> per co-founder. To add the photo, replace the
-          placeholder <div> with:
-            <img src="/about/media/<name>.jpg" alt="<Name>" class="member-photo"
-                 width="384" height="384">
+          One <li class="member"> per co-founder. Photos are in /about/media/:
+          square, 448 x 448 JPEG, metadata removed (see README).
         -->
         <ul class="team-grid">
           <li class="member">
-            <div class="member-photo member-photo--placeholder" aria-hidden="true">Photo</div>
-            <h3 class="member-name">[Name]</h3>
+            <img src="/about/media/andrew.jpg" alt="Portrait of Andrew" class="member-photo"
+                 width="448" height="448">
+            <h3 class="member-name">Andrew</h3>
             <p class="member-role">Co-founder</p>
-            <p class="member-bio">[Short description to come.]</p>
           </li>
           <li class="member">
-            <div class="member-photo member-photo--placeholder" aria-hidden="true">Photo</div>
-            <h3 class="member-name">[Name]</h3>
+            <img src="/about/media/dylan.jpg" alt="Portrait of Dylan" class="member-photo"
+                 width="448" height="448">
+            <h3 class="member-name">Dylan</h3>
             <p class="member-role">Co-founder</p>
-            <p class="member-bio">[Short description to come.]</p>
           </li>
         </ul>
       </section>

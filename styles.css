@@ -471,14 +471,28 @@ main.about {
 
 .about-text {
   font-family: var(--font-mono);
-  font-size: clamp(0.875rem, 2.2vw, 1rem);
+  font-size: clamp(0.9375rem, 2.6vw, 1.125rem);
   line-height: 1.75;
   color: var(--text-muted);
 }
 
+/* Set apart from the mission text by a short green rule above it. */
+.about-quote {
+  max-width: 34rem;
+  margin: 1rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--accent);
+  border-image: linear-gradient(to right, transparent 45%, var(--accent) 45%, var(--accent) 55%, transparent 55%) 1;
+  font-size: clamp(0.9375rem, 2.3vw, 1.0625rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 2rem;
   list-style: none;
 }
@@ -491,22 +505,14 @@ main.about {
 }
 
 .member-photo {
-  width: 12rem;
+  width: 14rem;
+  height: auto;             /* override the <img> height attribute */
   aspect-ratio: 1;
   margin-bottom: 0.75rem;
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   object-fit: cover;
   background: var(--bg);
-}
-
-/* Gray box shown until the real photo is added. */
-.member-photo--placeholder {
-  display: grid;
-  place-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--text-muted);
 }
 
 .member-name {
@@ -520,13 +526,6 @@ main.about {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   color: var(--accent);
-}
-
-.member-bio {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  color: var(--text-muted);
 }
 
 main.about + .contact {

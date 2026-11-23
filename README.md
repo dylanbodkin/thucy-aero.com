@@ -97,9 +97,22 @@ before committing; removing a file from git history later is much harder.
 ## About page (`/about/`)
 
 `about/index.html`: a Mission section and a Team section with one card per
-co-founder. Put photos in `about/media/` (square, 384x384 px JPEG, location
-data removed) and replace each placeholder `<div>` with the `<img>` shown in
-the comment above the team list.
+co-founder. Photos are in `about/media/`: square, 448x448 px JPEG, all
+metadata removed. The originals are in `assets/` (kept out of git). To redo
+one, crop it square first, e.g.:
+
+```bash
+ffmpeg -i assets/andrew_pfp.jpeg -vf "crop=560:560:76:0,scale=448:448:flags=lanczos" \
+  -map_metadata -1 -q:v 3 about/media/andrew.jpg
+```
+
+## Cache busting
+
+Pages load the stylesheet and scripts with a `?rev=N` query (e.g.
+`styles.css?rev=15`). Bump `N` on every page when the file changes, so
+browsers fetch the new copy. Use `rev`, not `v`: Vite's dev server treats `?v=`
+as its own version hash and tells the browser to cache the file for a year, so
+edits stop showing up locally.
 
 ## Color scheme
 
