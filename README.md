@@ -96,8 +96,7 @@ before committing; removing a file from git history later is much harder.
 
 ## About page (`/about/`)
 
-`about/index.html`: a Mission section and a Team section with one card per
-co-founder. Photos are in `about/media/`: square, 448x448 px JPEG, all
+`about/index.html`: a Founders section with one card per founder. Photos are in `about/media/`: square, 448x448 px JPEG, all
 metadata removed. The originals are in `assets/` (kept out of git). To redo
 one, crop it square first, e.g.:
 
